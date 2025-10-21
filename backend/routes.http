@@ -1,0 +1,31 @@
+### Teste da API
+GET http://localhost:3333/
+
+### Criar novo usuario
+POST http://localhost:3333/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Higor",
+  "email": "higor@mail.com",
+  "idade": 28
+}
+
+### Listar usuarios
+GET http://localhost:3333/usuarios
+
+### Listar usuario
+GET http://localhost:3333/usuarios/68f6d0982bf2fb17c43d166b
+
+### Atualizar usuario
+PUT http://localhost:3333/usuarios/68f6d0982bf2fb17c43d166b
+Content-Type: application/json
+
+{
+  "nome": "Higor",
+  "email": "higor@mail.com",
+  "idade": 28
+}
+
+### Deletar usuario
+DELETE http://localhost:3333/usuarios/68f6d0982bf2fb17c43d166b
