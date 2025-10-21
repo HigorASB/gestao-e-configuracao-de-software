@@ -18,6 +18,37 @@ app.get('/', (req, res) => {
     res.send('API Simples Node.js, Express, MongoDB/Mongoose funcionando!');
 });
 
+app.post('/usuarios', async (req, res) => {
+    try {
+        const novoUsuario = new Usuario(req.body);
+        const usuarioSalvo = await novoUsuario.save();
+        res.status(201).json(usuarioSalvo);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
+app.get('/usuarios', async (req, res) => {
+    try {
+        const usuarios = await Usuario.find();
+        res.json(usuarios);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.get('/usuarios/:id', async (req, res) => {
+    try {
+        const usuario = await Usuario.findById(req.params.id);
+        if (!usuario) {
+            return res.status(404).json({ message: 'Usuario não encontrada' });
+        }
+        res.json(usuario);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
