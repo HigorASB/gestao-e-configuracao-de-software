@@ -32,7 +32,7 @@ function App() {
     setLoading(true)
     setError('')
     try {
-      const response = await fetch('http://localhost:3000/usuarios')
+      const response = await fetch('http://localhost:3333/usuarios')
       if (!response.ok) {
         throw new Error('Erro ao buscar usuários')
       }
@@ -52,7 +52,7 @@ function App() {
     setError('')
     
     try {
-      const response = await fetch('http://localhost:3000/usuarios', {
+      const response = await fetch('http://localhost:3333/usuarios', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ function App() {
     
     setError('')
     try {
-      const response = await fetch(`http://localhost:3000/usuarios/${userId}`, {
+      const response = await fetch(`http://localhost:3333/usuarios/${userId}`, {
         method: 'DELETE'
       })
       
@@ -135,7 +135,7 @@ function App() {
     setError('')
     
     try {
-      const response = await fetch(`http://localhost:3000/usuarios/${editingUser._id}`, {
+      const response = await fetch(`http://localhost:3333/usuarios/${editingUser._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
